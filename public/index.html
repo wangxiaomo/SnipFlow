@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SnipFlow</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/code.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/simplegrid.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/snipflow.css" />
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/">SnipFlow</a>
+          <div class="nav-collapse" id="main-menu">
+            <ul class="nav">
+              <li><a>Home</a></li>
+              <li><a>Share</a></li>
+              <li><a>Help</a></li>
+            </ul>
+            <ul class="nav pull-right">
+              <li><a>Login</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <div class="snip-box col-1-6">
+		  <p>【英国人眼里的成都美食】神视频啊！什么“舌尖上的中国”都是狗屎啊！英国BBC播出名为《中国味道之旅》的四集电视纪录片，成都篇为第二集，时长58分53秒。“成都，世界上发展最快的城市之一，成都以美食之都闻名，成都美食在中国最受欢迎。”尼玛看得我流口水了！</p>
+      </div>
+      <div class="snip-box">
+        <p>【 社交网络，电子时代的人生绑架者】网络社交上瘾与烟瘾截然不同，一个正常人只要掉进这个圈套，就几乎不可能不对这玩意上瘾。人们难以容忍等待，他们需要新状态的刺激，这就是“通知”。窥私欲是支撑社交网站的动力之一，自恋则是深层原因，人人需要关注，人人缺乏关注http://t.cn/zlRsYQA</p>
+      </div>
+      <div class="snip-box col-1-3">
+        <p>我跟他吃顿饭怎么了？我清清白白的。你还跟你在美国的前女友吃饭呢？找不到地儿，你还让我帮你查，我查慢了你还发火。。。回家路上听到一女的打电话大声说——神马情况？</p>
+      </div>
+      <div class="snip-box">
+        <pre lang="bash" class="prettyprint">
+gcc main.c -o main
+        </pre>
+      </div>
+      <div class="snip-box">
+        <p>⊙﹏⊙ 为神马改装车都是三菱的？</p>
+      </div>
+      <div class="snip-box">
+        <p>我对自己的要求是：一定要保持一颗谦逊的心，同时也要保持一颗骄傲的心。有了谦逊的心，才能看到自己和别人的巨大差距，才知道自己有多差，才能不断提高自己；有了骄傲的心，才能保持自己做人的底线，不出卖自己的灵魂，有所为，有所不为。</p>
+      </div>
+    </div>
+    <div id="footer">
+      wxm4ever @ 2012/10/20 <a href="http://wangxiaomo.github.com">wangxiaomo.github.com</a>
+    </div>
+  </body>
+  <script src="static/js/jquery-1.8.2.min.js"></script>
+  <script src="static/js/jquery.masonry.min.js"></script>
+  <script src="static/js/prettify.js"></script>
+  <script>
+$(function(){
+  $('.container').masonry({
+    itemSelector: '.snip-box',
+    resizeable: true,
+    animate: true,
+  });
+  prettyPrint();
+});
+  </script>
+</html>

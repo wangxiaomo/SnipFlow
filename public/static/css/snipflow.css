@@ -1,0 +1,31 @@
+*    { margin:0; padding:0; }
+pre  { padding: 10px; }
+
+#container {
+  width: 980px;
+  margin: 50px auto;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  padding: 0;
+  padding-bottom: 36px;
+  width: 100%;
+  text-align: center;
+  font: 10px;
+  color: grey;
+}
+
+.snip-box {
+  float: left;
+  width: 200px;
+  margin: 5px;
+  padding: 5px;
+  word-wrap: break-word;
+  background: #D8D5D2;
+}
+
+.snip-box pre {
+  margin-bottom: 1px;
+}
