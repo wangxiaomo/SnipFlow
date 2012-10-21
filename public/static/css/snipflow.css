@@ -3,14 +3,11 @@ pre  { padding: 10px; }
 
 #container {
   width: 980px;
+  min-height: 500px;
   margin: 50px auto;
 }
 
 #footer {
-  position: absolute;
-  bottom: 0;
-  padding: 0;
-  padding-bottom: 36px;
   width: 100%;
   text-align: center;
   font: 10px;
@@ -23,9 +20,17 @@ pre  { padding: 10px; }
   margin: 5px;
   padding: 5px;
   word-wrap: break-word;
-  background: #D8D5D2;
+  background: #FFF;
+  border: 1px solid #BEBEBE;
 }
 
 .snip-box pre {
-  margin-bottom: 1px;
+  margin-bottom: 10px;
+}
+
+.snip-box .op {
+  text-align: right;
+  width: 100%;
+  font-size: 8px;
+  background: #F0F0F0;
 }
