@@ -2,16 +2,20 @@
 pre  { padding: 10px; }
 
 #container {
+  display: block;
   width: 980px;
-  min-height: 500px;
+  min-height: 600px;
   margin: 50px auto;
 }
 
 #footer {
+  display: block;
+  clear: both;
   width: 100%;
   text-align: center;
   font: 10px;
   color: grey;
+  padding-top: 20px;
 }
 
 .snip-box {

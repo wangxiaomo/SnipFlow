@@ -7,6 +7,7 @@ $(function(){
   window.Snips = new SnipList;
   window.SnipView = Backbone.View.extend({
     template: _.template($("#snip-template").html()),
+    className: "snip-box",
     initialize: function(){
       this.model.bind('change', this.render, this);
       this.model.bind('destroy', this.remove, this);
