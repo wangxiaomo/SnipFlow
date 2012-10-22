@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 
-from flask import Flask, request, flash, jsonify
+from flask import Flask, request, flash, jsonify, render_template
 from lib.flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -18,9 +18,9 @@ class Snip(db.Model):
 
 @app.route('/')
 def index():
-    return "Hello World"
+    return render_template('index.html')
 
-@app.route('/snips')
+@app.route('/snips', methods=['GET'])
 def show_snips():
     count = request.args.get('count')
     count = count and int(count) or 20
@@ -35,7 +35,7 @@ def show_snips():
         })
     return jsonify(data=all_snips)
 
-@app.route('/snip', methods=['POST'])
+@app.route('/snips', methods=['POST'])
 def create_snip():
     snip_context = request.form('snip_context')
     snip = Snip(snip_context)
@@ -43,7 +43,7 @@ def create_snip():
     db.session.commit()
     return jsonify(snip_id=snip.id, snip_context=snip.context)
 
-@app.route('/snip/<int:snip_id>', methods=['PUT', 'DELETE'])
+@app.route('/snips/<int:snip_id>', methods=['PUT', 'DELETE'])
 def update_snip(snip_id):
     snip = Snip.query.get(snip_id)
 
