@@ -1,32 +1,42 @@
 
 $(function(){
-  window.Snip = Backbone.Model.extend({
-    idAttribute: "_id",
-    defaults: function(){
-      return {
-        snip_context: "",
-      };
-    },
-  });
   window.SnipList = Backbone.Collection.extend({
-    model: Snip,
     url: "/snips",
   });
   
   window.Snips = new SnipList;
   window.SnipView = Backbone.View.extend({
-    tagName: "div",
     template: _.template($("#snip-template").html()),
     initialize: function(){
-      this.model.bind("change", this.render, this);
-      this.model.bind("destroy", this.remove, this);
+      this.model.bind('change', this.render, this);
+      this.model.bind('destroy', this.remove, this);
     },
     render: function(){
-      alert("render");
+      $(this.el).html(this.template(this.model.toJSON()));
+      return this;
     },
     remove: function(){
-      alert("remove");
+      $(this.el).remove();
     },
   });
-  window.AppView = new Window.SnipView;
+  window.AppView = Backbone.View.extend({
+    tagName: "div",
+    initialize: function(){
+      Snips.bind("reset", this.addAll, this);
+      Snips.bind("all", this.render, this);
+      Snips.fetch();
+    },
+    render: function(){
+      this.addAll();
+    },
+    addOne: function(snip){
+      var view = new SnipView({model: snip});
+      $("#container").append(view.render().el);
+    },
+    addAll: function(){
+      $("#container").html('');
+      Snips.each(this.addOne);
+    },
+  });
+  window.App = new AppView;
 });
