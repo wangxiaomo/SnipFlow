@@ -1,7 +1,7 @@
 #-*- coding: utf-8 -*-
 
-import json
 from functools import wraps
+from flask import json
 from flask import request, Response
 
 def jsonize(func):
