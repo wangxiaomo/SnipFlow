@@ -1,7 +1,7 @@
 
 $(function(){
   window.SnipList = Backbone.Collection.extend({
-    url: "/snips",
+    url: "/j/snips",
   });
   
   window.Snips = new SnipList;
