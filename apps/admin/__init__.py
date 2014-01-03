@@ -12,5 +12,7 @@ from apps.settings import AppsSetupConfig
 app = Flask(__name__)
 app.config.from_object(AppsSetupConfig)
 db.init_app(app)
+
+snip_view = ModelView(Snip, db.session, url="/")
 admin = Admin(app)
-admin.add_view(ModelView(Snip, db.session))
+admin.add_view(snip_view)
