@@ -1,16 +1,19 @@
 #-*- coding: utf-8 -*-
 
+from werkzeug.wsgi import DispatcherMiddleware
+from werkzeug.serving import run_simple
 from flask import Flask, render_template
-from backend.api import api, db
+from backend.api import api
+
 
 app = Flask(__name__)
-app.config.from_pyfile('settings.py')
-app.register_blueprint(api, url_prefix='/j')
-db.init_app(app)
 
-@app.route('/')
+
+@app.route("/")
 def index():
-    return render_template('index.html')
+    return render_template("index.html")
 
-if __name__ == '__main__':
-    app.run(debug=True,host="0.0.0.0")
+
+application = DispatcherMiddleware(app, {"/j": api})
+run_simple("0.0.0.0", 5000, application, use_reloader=True, use_debugger=True,
+        use_evalex=True)

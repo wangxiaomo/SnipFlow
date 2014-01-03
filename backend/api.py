@@ -1,12 +1,14 @@
 #-*- coding: utf-8 -*-
 
-from flask import Blueprint, request
+from flask import Flask, request
 
 from utils import jsonize
 from lib.flask_sqlalchemy import SQLAlchemy
 
-api = Blueprint('api', __name__)
+api = Flask(__name__)
+api.config.from_pyfile('settings.py')
 db = SQLAlchemy()
+db.init_app(api)
 
 class Snip(db.Model):
     __tablename__ = 'snips'
@@ -15,6 +17,12 @@ class Snip(db.Model):
 
     def __init__(self, context):
         self.context = context
+
+
+@api.route('/')
+def setup_db():
+    with api.app_context():
+        db.create_all()
 
 
 @api.route('/snips', methods=['GET'])
@@ -54,3 +62,7 @@ def update_snip(snip_id):
         db.session.delete(snip)
         db.session.commit()
         return {'snip_id':snip.id}
+
+
+if __name__ == '__main__':
+    api.run("0.0.0.0", debug=True)
