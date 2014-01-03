@@ -3,7 +3,7 @@
 from werkzeug.wsgi import DispatcherMiddleware
 from werkzeug.serving import run_simple
 from flask import Flask, render_template
-from backend.api import api
+from apps.backend.api import api
 
 
 app = Flask(__name__)

@@ -2,21 +2,15 @@
 
 from flask import Flask, request
 
-from utils import jsonize
-from lib.flask_sqlalchemy import SQLAlchemy
+from apps.model import db
+from apps.model.snip import Snip
+from apps.backend.utils import jsonize
+
 
 api = Flask(__name__)
 api.config.from_pyfile('settings.py')
-db = SQLAlchemy()
+api.debug = True
 db.init_app(api)
-
-class Snip(db.Model):
-    __tablename__ = 'snips'
-    id = db.Column('snip_id', db.Integer, primary_key=True)
-    context = db.Column('snip_context', db.Text)
-
-    def __init__(self, context):
-        self.context = context
 
 
 @api.route('/')
