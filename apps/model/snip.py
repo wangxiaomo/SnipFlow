@@ -10,3 +10,7 @@ class Snip(db.Model):
 
     def __init__(self, context):
         self.context = context
+
+    @property
+    def snip_id(self):
+        return self.id

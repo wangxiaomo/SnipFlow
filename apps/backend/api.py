@@ -4,12 +4,12 @@ from flask import Flask, request
 
 from apps.model import db
 from apps.model.snip import Snip
+from apps.settings import AppsSetupConfig
 from apps.backend.utils import jsonize
 
 
 api = Flask(__name__)
-api.config.from_pyfile('settings.py')
-api.debug = True
+api.config.from_object(AppsSetupConfig)
 db.init_app(api)
 
 
